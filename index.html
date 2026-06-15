@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worawaran Tracking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="navbar">
+    <a class="nav-logo" href="#">
+      <div class="nav-logo-icon">🌷</div>
+      <span class="nav-logo-text">For Worawara</span>
+      <span class="nav-logo-badge">V.0.1.2</span>
+    </a>
+
+    <div class="nav-status">
+      <div class="status-pill" id="nav-model-pill">
+        <span class="dot"></span>
+        <span>MediaPipe</span>
+      </div>
+      <div class="status-pill" id="nav-cam-pill">
+        <span class="dot"></span>
+        <span>กล้อง</span>
+      </div>
+    </div>
+
+    <div class="nav-controls">
+      <button class="btn primary" id="toggle-draw">
+        <span>🎨</span>
+        <span class="btn-label">Draw Mode : On</span>
+      </button>
+      <button class="btn danger" id="clear-draw">
+        <span>🗑</span>
+        <span class="btn-label">Clear</span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="app">
+    <div id="stage">
+      <div id="canvas-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="draw-canvas"></canvas>
+        <canvas id="cam-canvas"></canvas>
+        <div id="mode-indicator">
+          <div class="badge pen">Right Hand = Pen</div>
+          <div class="badge eraser">Left Hand = Eraser</div>
+        </div>
+
+        <div id="color-palette">
+          <span class="palette-label">🎨 Color</span>
+          <div class="color-swatch active" data-color="#ffffff" style="background:#ffffff; --swatch-glow: rgba(200,180,255,0.6);"></div>
+          <div class="color-swatch" data-color="#ff85c2" style="background:#ff85c2; --swatch-glow: rgba(255,133,194,0.6);"></div>
+          <div class="color-swatch" data-color="#b48ef5" style="background:#b48ef5; --swatch-glow: rgba(180,142,245,0.6);"></div>
+          <div class="color-swatch" data-color="#6ec6ff" style="background:#6ec6ff; --swatch-glow: rgba(110,198,255,0.6);"></div>
+          <div class="color-swatch" data-color="#5dddb8" style="background:#5dddb8; --swatch-glow: rgba(93,221,184,0.6);"></div>
+          <div class="color-swatch" data-color="#ffd95a" style="background:#ffd95a; --swatch-glow: rgba(255,217,90,0.6);"></div>
+          <div class="color-swatch" data-color="#ffad6b" style="background:#ffad6b; --swatch-glow: rgba(255,173,107,0.6);"></div>
+          <div class="color-swatch" data-color="#ff6b6b" style="background:#ff6b6b; --swatch-glow: rgba(255,107,107,0.6);"></div>
+          <div class="palette-divider"></div>
+          <span class="palette-label">ขนาด</span>
+          <button class="size-btn" id="size-down">−</button>
+          <span class="size-display" id="size-display">5</span>
+          <button class="size-btn" id="size-up">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="hud">
+      <div class="hud-cell">
+        <div>
+          <div class="hud-label">Gesture</div>
+          <div class="hud-value gesture" id="gesture">Raise ur hand</div>
+        </div>
+      </div>
+      <div class="hud-cell">
+        <div>
+          <div class="hud-label">Hands</div>
+          <div class="hud-value hands" id="hand-count">0</div>
+        </div>
+      </div>
+      <div class="hud-cell">
+        <div>
+          <div class="hud-label">FPS</div>
+          <div class="hud-value fps" id="fps">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="status-screen">
+    <div class="loader-ring">🌷</div>
+    <div class="loader-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="status-msg" id="status">Loading. . .</div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
